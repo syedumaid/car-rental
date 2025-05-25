@@ -37,12 +37,13 @@
       <label for="startDate">Rental Start Date:</label>
       <input type="date" id="startDate" required>
 
-      <label for="returnDate">Rental Return Date:</label>
-      <input type="date" id="returnDate" required>
 
       <!-- Hidden field to store rental duration in days -->
       <input type="hidden" id="rentalDays" />
-
+      
+      <label for="returnDate">Rental Return Date:</label>
+      <input type="date" id="returnDate" required />
+      
       <p id="totalPriceDisplay">Total Price: $<span id="totalPrice">0</span></p>
 
       <button type="submit" id="submitBtn">Submit Reservation</button>

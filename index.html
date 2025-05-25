@@ -16,6 +16,7 @@
   </header>
 
   <!-- Search + Filters -->
+  <div class="filter-bar">
   <section class="search-filter-section">
     <input type="text" id="searchBox" placeholder="Search by brand, model, type..." />
     <div class="filters">
@@ -32,11 +33,15 @@
         <option value="Honda">Honda</option>
         <option value="Ford">Ford</option>
       </select>
-    </div>
-    <ul id="suggestions" class="suggestion-list"></ul>
-    <button id="resetBtn">Reset Filters</button>
+      <button id="resetBtn">Reset Filters</button>
 
+    </div>
+    
+    <ul id="suggestions" class="suggestion-list"></ul>
+    
   </section>
+  
+  </div>
 
   <!-- Car Grid -->
   <section class="car-grid" id="carGrid">

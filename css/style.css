@@ -27,7 +27,7 @@
   }
   
   .logo {
-    height: 50px;
+    height: 100px;
     width: auto;
   }
   
@@ -292,6 +292,51 @@
     justify-content: center;
     margin-bottom: 1.5rem;
   }
+  .info-text {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+  }
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  #searchBox,
+  #filterType,
+  #filterBrand {
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  #resetBtn {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #resetBtn:hover {
+    background-color: #e67300;
+  
+  }
+  
+  
+  
+  
   
   
     
