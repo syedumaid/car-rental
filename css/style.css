@@ -1,0 +1,297 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #ffffff, #fff6e6); /* soft white-orange */
+    color: #333;
+    padding: 0 1rem;
+  }
+  
+  /* Header */
+  header {
+    background: #ff8c00;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+  
+  /* Search Section */
+  .search-filter-section {
+    margin: 1.5rem auto;
+    text-align: center;
+  }
+  
+  .search-filter-section input[type="text"] {
+    padding: 0.5rem 1rem;
+    width: 50%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .filters {
+    margin-top: 1rem;
+  }
+  
+  .filters select {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .suggestion-list {
+    list-style: none;
+    background: white;
+    width: 50%;
+    max-width: 500px;
+    margin: 0.5rem auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    z-index: 10;
+    position: relative;
+  }
+  
+  .suggestion-list li {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .suggestion-list li:hover {
+    background: #ffe0b2;
+  }
+  
+  /* Car Grid */
+  .car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .car-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    padding: 1rem;
+    transition: transform 0.2s;
+  }
+  
+  .car-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .car-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .car-card h3 {
+    margin-top: 0.5rem;
+    color: #ff8c00;
+  }
+  
+  .car-card p {
+    margin: 0.3rem 0;
+  }
+  
+  .rent-btn {
+    background: #ff8c00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .rent-btn:hover {
+    background: #e67300;
+  }
+  
+  .rent-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+/* reservation */
+/* Reservation Page Styling */
+.reservation-main {
+    background-color: #fff9f0;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  
+  .reservation-car-info {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+  
+  .reservation-car-info img.car-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .reservation-car-info h2 {
+    color: #ff8c00;
+    margin-bottom: 0.5rem;
+  }
+  
+  .reservation-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .reservation-form h2 {
+    flex-basis: 100%;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .reservation-form label {
+    flex-basis: 100%;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: #444;
+  }
+  
+  .reservation-form input {
+    flex-grow: 1;
+    min-width: 250px;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  #totalPriceDisplay {
+    flex-basis: 100%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #222;
+  }
+  
+  .reservation-form button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: 0.3s;
+  }
+  
+  #submitBtn {
+    background-color: #ff8c00;
+    color: white;
+  }
+  
+  #submitBtn:hover:enabled {
+    background-color: #e67300;
+  }
+  
+  #submitBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  #cancelBtn {
+    background-color: transparent;
+    border: 1px solid #aaa;
+    color: #333;
+  }
+  
+  #cancelBtn:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Responsive Tweaks */
+  @media screen and (max-width: 768px) {
+    .reservation-form {
+      flex-direction: column;
+    }
+  
+    .reservation-form input,
+    .reservation-form select {
+      width: 100%;
+    }
+  
+    .reservation-car-info {
+      text-align: center;
+    }
+  }
+  input:invalid {
+    border-color: red;
+  }
+  
+  input:valid {
+    border-color: green;
+  }
+  #suggestions {
+    display: none !important;
+  }
+  #resetBtn {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 1rem;
+  }
+  
+  #resetBtn:hover {
+    background-color: #e67300;
+    transform: scale(1.02);
+  }
+  
+  #resetBtn:active {
+    transform: scale(0.98);
+  }
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  
+    

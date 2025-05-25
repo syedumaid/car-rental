@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header with Logo -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html"><img src="img/logo.png" alt="Logo" class="logo"></a>
+      <h1>Find Your Ride</h1>
+    </div>
+  </header>
+
+  <!-- Search + Filters -->
+  <section class="search-filter-section">
+    <input type="text" id="searchBox" placeholder="Search by brand, model, type..." />
+    <div class="filters">
+      <select id="filterType">
+        <option value="">All Types</option>
+        <option value="Sedan">Sedan</option>
+        <option value="SUV">SUV</option>
+        <option value="Coupe">Coupe</option>
+      </select>
+
+      <select id="filterBrand">
+        <option value="">All Brands</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Honda">Honda</option>
+        <option value="Ford">Ford</option>
+      </select>
+    </div>
+    <ul id="suggestions" class="suggestion-list"></ul>
+    <button id="resetBtn">Reset Filters</button>
+
+  </section>
+
+  <!-- Car Grid -->
+  <section class="car-grid" id="carGrid">
+    <!-- Cards will be injected here by script.js -->
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

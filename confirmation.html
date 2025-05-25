@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservation Confirmed</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <a href="index.html"><img src="img/logo.png" alt="Logo" class="logo"></a>
+      <h1>Thank You!</h1>
+    </div>
+  </header>
+
+  <main class="reservation-main">
+    <div id="confirmationDetails" class="reservation-car-info">
+      <!-- Order summary will be injected here -->
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="index.html">
+        <button style="padding: 0.6rem 1.2rem; font-size: 1rem; background-color: #ff8c00; color: white; border: none; border-radius: 8px; cursor: pointer;">
+          Return to Homepage
+        </button>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const details = document.getElementById("confirmationDetails");
+      const order = JSON.parse(localStorage.getItem("confirmedOrder"));
+
+      if (order) {
+        details.innerHTML = `
+          <h2>Reservation Confirmed</h2>
+          <p><strong>Name:</strong> ${order.customer.name}</p>
+          <p><strong>Email:</strong> ${order.customer.email}</p>
+          <p><strong>Phone:</strong> ${order.customer.phoneNumber}</p>
+          <p><strong>License No:</strong> ${order.customer.driversLicenseNumber}</p>
+          <p><strong>Car VIN:</strong> ${order.car.vin}</p>
+          <p><strong>Rental Start Date:</strong> ${order.rental.startDate}</p>
+          <p><strong>Rental Return Date:</strong> ${order.rental.returnDate}</p>
+          <p><strong>Rental Period:</strong> ${order.rental.rentalPeriod} days</p>
+          <p><strong>Total Price:</strong> $${order.rental.totalPrice}</p>
+        `;
+        localStorage.removeItem("confirmedOrder");
+      } else {
+        details.innerHTML = "<p>No reservation found. Please make a reservation first.</p>";
+      }
+    });
+  </script>
+</body>
+</html>

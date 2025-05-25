@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reserve Your Car</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html"><img src="img/logo.png" alt="Logo" class="logo"></a>
+      <h1>Reserve Your Car</h1>
+    </div>
+  </header>
+
+  <main class="reservation-main">
+    <!-- Car Details -->
+    <div id="carDetails" class="reservation-car-info"></div>
+
+    <!-- Reservation Form -->
+    <form id="reservationForm" class="reservation-form">
+      <h2>Reservation Details</h2>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" required pattern="^[a-zA-Z ]{2,}$" title="Only letters, at least 2 characters.">
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" placeholder="+1234567890" id="phone" required pattern="\+?[0-9\\-\\s]{7,15}" title="Valid phone number with optional +">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="license">Driver’s License Number:</label>
+      <input type="text" id="license" required pattern="^[A-Za-z0-9]{5,20}$" title="Alphanumeric, 5–20 characters">
+
+      <label for="startDate">Rental Start Date:</label>
+      <input type="date" id="startDate" required>
+
+      <label for="returnDate">Rental Return Date:</label>
+      <input type="date" id="returnDate" required>
+
+      <!-- Hidden field to store rental duration in days -->
+      <input type="hidden" id="rentalDays" />
+
+      <p id="totalPriceDisplay">Total Price: $<span id="totalPrice">0</span></p>
+
+      <button type="submit" id="submitBtn">Submit Reservation</button>
+      <button type="button" id="cancelBtn">Cancel</button>
+    </form>
+
+    <div id="noCarMsg" style="display: none;">
+      <h3>No car selected. Please go back and choose a car.</h3>
+    </div>
+  </main>
+
+  <script src="js/reservation.js"></script>
+</body>
+</html>
