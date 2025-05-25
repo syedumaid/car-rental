@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const keywordSet = new Set();
     allCars.forEach(car => {
-      [car.brand, car.carModel, car.carType, car.description].forEach(field => {
+      [car.brand, car.carModel, car.carType].forEach(field => {
         if (field.toLowerCase().includes(input)) {
           keywordSet.add(field);
         }
@@ -112,8 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const matchesKeyword = keyword === "" ||
         car.brand.toLowerCase().includes(keyword) ||
         car.carModel.toLowerCase().includes(keyword) ||
-        car.carType.toLowerCase().includes(keyword) ||
-        car.description.toLowerCase().includes(keyword);
+        car.carType.toLowerCase().includes(keyword);
 
       const matchesType = selectedType === "" || car.carType === selectedType;
       const matchesBrand = selectedBrand === "" || car.brand === selectedBrand;
