@@ -335,6 +335,92 @@ input:valid {
 
 }
 
+.text-success {
+  color: green;
+}
+
+.text-warning {
+  color: orange;
+}
+
+.confirmation-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.confirmation-details p {
+  margin: 0.5rem 0;
+}
+#confirmOrderBtn {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#confirmOrderBtn:hover {
+  background-color: #e67300;
+}
+
+#confirmOrderBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#confirmOrderBtn.outline {
+  background-color: transparent;
+  border: 1px solid #aaa;
+  color: #333;
+}
+
+#confirmOrderBtn.outline:hover {
+  background-color: #f0f0f0;
+}
+
+/* Add more styles as needed */
+#cancelOrderBtn {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#cancelOrderBtn:hover {
+  background-color: #e67300;
+}
+
+#cancelOrderBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#cancelOrderBtn.outline {
+  background-color: transparent; 
+  border: 1px solid #aaa;
+  color: #333;
+}
+
+#confirmOrderBtn.outline:hover {
+  background-color: #f0f0f0;
+}
 
 
 
