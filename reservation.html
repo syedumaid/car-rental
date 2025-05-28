@@ -27,10 +27,16 @@
       <input type="text" id="name" required pattern="^[a-zA-Z ]{2,}$" title="Only letters, at least 2 characters.">
 
       <label for="phone">Phone Number:</label>
-      <input type="tel" placeholder="+1234567890" id="phone" required pattern="\+?[0-9\\-\\s]{7,15}" title="Valid phone number with optional +">
+      <input type="tel" placeholder="+1234567890" id="phone"  pattern="^\+?[0-9\- ]{7,15}" title="Valid phone number with optional +">
+      <br>
+      <small id="phoneWarning" class="warning-text"></small>
 
+      <!-- <label for="email">Email:</label>
+      <input type="email" id="email" required> -->
       <label for="email">Email:</label>
-      <input type="email" id="email" required>
+      <input type="email" id="email">
+      <br>
+      <div class="error-message" id="emailError"></div>
 
       <label for="license">Driver’s License Number:</label>
       <input type="text" id="license" required pattern="^[A-Za-z0-9]{5,20}$" title="Alphanumeric, 5–20 characters">
@@ -52,6 +58,10 @@
 
     <div id="noCarMsg" style="display: none;">
       <h3>No car selected. Please go back and choose a car.</h3>
+      <a href="index.html" class="btn-home">Take me Home! Country Roads</a>
+
+      <!-- <button type="button" id="goHomeBtn">Take me Home! Country Roads</button> -->
+      <!-- <button href="index.html" type="button" id="homeBtn">Take me Home! Country Roads</button> -->
     </div>
   </main>
 
