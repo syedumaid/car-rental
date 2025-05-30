@@ -35,147 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("form_returnDate", returnDateInput.value);
   };
 
-<<<<<<< HEAD
-  // const validateForm = () => {
-  //   const fields = [nameInput, phoneInput, emailInput, licenseInput, startDateInput, returnDateInput];
-  //   let isValid = true;
-  //   fields.forEach(field => {
-  //     if (!field.value.trim()) {
-  //       field.style.borderColor = "red";
-  //       isValid = false;
-  //     } else {
-  //       field.style.borderColor = "green";
-  //     }
-  //   });
-  //   submitBtn.disabled = !isValid;
-  //   return isValid;
-  // };
-  function validateForm() {
-    let isValid = true;
-  
-    // Clear all previous errors
-    document.querySelectorAll(".error-message").forEach(div => div.textContent = "");
-  
-    // Name
-    if (!/^[a-zA-Z ]{2,}$/.test(nameInput.value)) {
-      showError("nameError", "Name must be at least 2 letters.");
-      nameInput.style.borderColor = "red";
-      isValid = false;
-    } else {
-      nameInput.style.borderColor = "green";
-    }
-  
-    // Phone
-    const phoneVal = phoneInput.value.trim();
-    if (!/^\+?[0-9\s\-]{7,15}$/.test(phoneVal)) {
-      showError("phoneWarning", "Phone number must be 7-15 digits (can include +, -, or space).");
-      phoneInput.style.borderColor = "red";
-      isValid = false;
-    } else {
-      phoneInput.style.borderColor = "green";
-    }
-  
-    // Email
-    const emailVal = emailInput.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(emailVal)) {
-      showError("emailError", "Please enter a valid email address.");
-      emailInput.style.borderColor = "red";
-      isValid = false;
-    } else {
-      emailInput.style.borderColor = "green";
-    }
-  
-    // License
-    if (!/^[A-Za-z0-9]{5,20}$/.test(licenseInput.value)) {
-      showError("licenseError", "License must be alphanumeric (5–20 characters).");
-      licenseInput.style.borderColor = "red";
-      isValid = false;
-    } else {
-      licenseInput.style.borderColor = "green";
-    }
-  
-    // Start Date
-    if (!startDateInput.value) {
-      showError("startDateError", "Please select a rental start date.");
-      startDateInput.style.borderColor = "red";
-      isValid = false;
-    } else {
-      startDateInput.style.borderColor = "green";
-    }
-  
-    // Return Date
-    if (!returnDateInput.value) {
-      showError("returnDateError", "Please select a rental return date.");
-      returnDateInput.style.borderColor = "red";
-      isValid = false;
-    } else {
-      returnDateInput.style.borderColor = "green";
-    }
-  
-    submitBtn.disabled = !isValid;
-    return isValid;
-  }
-  function showError(elementId, message) {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.textContent = message;
-      element.style.color = "red";
-      element.style.marginTop = "4px";
-      element.style.fontSize = "0.9rem";
-    }
-  }
-    
-  document.getElementById("phone").addEventListener("input", function () {
-    this.value = this.value.replace(/[A-Za-z]/g, "");
-  });
-
-  const phoneWarning = document.getElementById("phoneWarning");
-
-phoneInput.addEventListener("input", function () {
-  const value = this.value;
-  const validPattern = /^\+?[0-9\- ]{7,15}$/;
-
-  if (/[a-zA-Z]/.test(value)) {
-    phoneWarning.textContent = "Letters are not allowed. Example: +1234567890";
-    this.style.borderColor = "red";
-  } else if (!validPattern.test(value)) {
-    phoneWarning.textContent = "Phone number should be 7 to 15 digits (can include +, - or spaces).";
-    this.style.borderColor = "orange";
-  } else {
-    phoneWarning.textContent = "";
-    this.style.borderColor = "green";
-  }
-});
-
-const cancelBtn = document.getElementById("cancelBtn");
-
-cancelBtn.addEventListener("click", () => {
-  // Clear form fields
-  form.reset();
-
-  // Reset border colors and validation
-  [nameInput, phoneInput, emailInput, licenseInput, startDateInput, returnDateInput].forEach(field => {
-    field.style.borderColor = "";
-  });
-
-  // Clear warning message if any
-  phoneWarning.textContent = "";
-
-  // Clear localStorage keys related to form and selection
-  localStorage.removeItem("form_name");
-  localStorage.removeItem("form_phone");
-  localStorage.removeItem("form_email");
-  localStorage.removeItem("form_license");
-  localStorage.removeItem("form_startDate");
-  localStorage.removeItem("form_returnDate");
-  localStorage.removeItem("selectedVIN");
-
-  // Optionally redirect to homepage
-  window.location.href = "index.html";
-});
-
-=======
   const validateForm = () => {
     const fields = [nameInput, phoneInput, emailInput, licenseInput, startDateInput, returnDateInput];
     let isValid = true;
@@ -190,7 +49,6 @@ cancelBtn.addEventListener("click", () => {
     submitBtn.disabled = !isValid;
     return isValid;
   };
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
 
   const updateTotalPrice = () => {
     const start = new Date(startDateInput.value);
@@ -212,15 +70,6 @@ cancelBtn.addEventListener("click", () => {
       validateForm();
     });
   });
-<<<<<<< HEAD
-  
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    const order = {
-=======
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -233,7 +82,6 @@ cancelBtn.addEventListener("click", () => {
 
     const order = {
       id: Date.now().toString(),
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
       customer: {
         name: nameInput.value,
         phoneNumber: phoneInput.value,
@@ -244,44 +92,13 @@ cancelBtn.addEventListener("click", () => {
       rental: {
         startDate: startDateInput.value,
         returnDate: returnDateInput.value,
-<<<<<<< HEAD
-        rentalPeriod: Math.ceil((new Date(returnDateInput.value) - new Date(startDateInput.value)) / (1000 * 60 * 60 * 24)),
-        totalPrice: Math.ceil((new Date(returnDateInput.value) - new Date(startDateInput.value)) / (1000 * 60 * 60 * 24)) * selectedCar.pricePerDay,
-=======
         rentalPeriod: rentalDays,
         totalPrice: total,
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
         orderDate: new Date().toISOString().split("T")[0],
         status: "pending"
       }
     };
 
-<<<<<<< HEAD
-    const orders = JSON.parse(localStorage.getItem("mock_orders")) || [];
-    orders.push(order);
-    localStorage.setItem("mock_orders", JSON.stringify(orders));
-    localStorage.setItem("confirmedOrder", JSON.stringify(order));
-
-    localStorage.removeItem("form_name");
-    localStorage.removeItem("form_phone");
-    localStorage.removeItem("form_email");
-    localStorage.removeItem("form_license");
-    localStorage.removeItem("form_startDate");
-    localStorage.removeItem("form_returnDate");
-    localStorage.removeItem("selectedVIN");
-
-    window.location.href = "confirmation.html";
-  });
-  
-  if (!vin) {
-    document.getElementById("reservationForm").style.display = "none";
-    document.getElementById("noCarMsg").style.display = "block";
-    return; 
-  }
-  // document.getElementById("goHomeBtn").addEventListener("click", () => {
-  //   window.location.href = "index.html";
-  // });
-=======
     try {
       const response = await fetch("/data/orders", {
         method: "POST",
@@ -323,7 +140,6 @@ cancelBtn.addEventListener("click", () => {
     }
   });
   
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
   
 
   if (vin) {
@@ -342,19 +158,13 @@ cancelBtn.addEventListener("click", () => {
             <p><strong>Fuel:</strong> ${selectedCar.fuelType}</p>
             <p><strong>Price Per Day:</strong> $${selectedCar.pricePerDay}</p>
           </div>
-<<<<<<< HEAD
-        `;        
-=======
         `;
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
         }
         restoreForm();
         updateTotalPrice();
         validateForm();
       });
   }
-<<<<<<< HEAD
-=======
   if (!vin) {
     document.getElementById("reservationForm").style.display = "none";
     document.getElementById("carDetails").style.display = "none";
@@ -375,5 +185,4 @@ cancelBtn.addEventListener("click", () => {
     return; // stop further execution
   }
   
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
 });
