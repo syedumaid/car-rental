@@ -421,6 +421,7 @@ input:valid {
 #confirmOrderBtn.outline:hover {
   background-color: #f0f0f0;
 }
+<<<<<<< HEAD
 .warning-text {
   color: red;
   font-size: 0.85em;
@@ -474,6 +475,8 @@ input:valid {
 .btn-home:hover {
   background-color: #e67300;
 }
+=======
+>>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
 
 
 

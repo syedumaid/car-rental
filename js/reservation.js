@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("form_returnDate", returnDateInput.value);
   };
 
+<<<<<<< HEAD
   // const validateForm = () => {
   //   const fields = [nameInput, phoneInput, emailInput, licenseInput, startDateInput, returnDateInput];
   //   let isValid = true;
@@ -174,6 +175,22 @@ cancelBtn.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
+=======
+  const validateForm = () => {
+    const fields = [nameInput, phoneInput, emailInput, licenseInput, startDateInput, returnDateInput];
+    let isValid = true;
+    fields.forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = "red";
+        isValid = false;
+      } else {
+        field.style.borderColor = "green";
+      }
+    });
+    submitBtn.disabled = !isValid;
+    return isValid;
+  };
+>>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
 
   const updateTotalPrice = () => {
     const start = new Date(startDateInput.value);
@@ -195,6 +212,7 @@ cancelBtn.addEventListener("click", () => {
       validateForm();
     });
   });
+<<<<<<< HEAD
   
 
   form.addEventListener("submit", (e) => {
@@ -202,6 +220,20 @@ cancelBtn.addEventListener("click", () => {
     if (!validateForm()) return;
 
     const order = {
+=======
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    const start = new Date(startDateInput.value);
+    const end = new Date(returnDateInput.value);
+    const rentalDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+    const total = rentalDays * selectedCar.pricePerDay;
+
+    const order = {
+      id: Date.now().toString(),
+>>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
       customer: {
         name: nameInput.value,
         phoneNumber: phoneInput.value,
@@ -212,13 +244,19 @@ cancelBtn.addEventListener("click", () => {
       rental: {
         startDate: startDateInput.value,
         returnDate: returnDateInput.value,
+<<<<<<< HEAD
         rentalPeriod: Math.ceil((new Date(returnDateInput.value) - new Date(startDateInput.value)) / (1000 * 60 * 60 * 24)),
         totalPrice: Math.ceil((new Date(returnDateInput.value) - new Date(startDateInput.value)) / (1000 * 60 * 60 * 24)) * selectedCar.pricePerDay,
+=======
+        rentalPeriod: rentalDays,
+        totalPrice: total,
+>>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
         orderDate: new Date().toISOString().split("T")[0],
         status: "pending"
       }
     };
 
+<<<<<<< HEAD
     const orders = JSON.parse(localStorage.getItem("mock_orders")) || [];
     orders.push(order);
     localStorage.setItem("mock_orders", JSON.stringify(orders));
@@ -243,6 +281,49 @@ cancelBtn.addEventListener("click", () => {
   // document.getElementById("goHomeBtn").addEventListener("click", () => {
   //   window.location.href = "index.html";
   // });
+=======
+    try {
+      const response = await fetch("/data/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(order)
+      });
+
+      if (!response.ok) throw new Error("Server error");
+
+      localStorage.setItem("confirmedOrder", JSON.stringify(order));
+      localStorage.removeItem("selectedVIN");
+
+      window.location.href = "/confirmation.html";
+    } catch (err) {
+      alert("Failed to submit order. Please ensure the server is running.");
+    }
+  });
+  document.getElementById("cancelBtn").addEventListener("click", () => {
+    if (confirm("Are you sure you want to cancel the reservation and clear the form?")) {
+      // Clear all stored form data
+      localStorage.removeItem("form_name");
+      localStorage.removeItem("form_phone");
+      localStorage.removeItem("form_email");
+      localStorage.removeItem("form_license");
+      localStorage.removeItem("form_startDate");
+      localStorage.removeItem("form_returnDate");
+      localStorage.removeItem("selectedVIN");
+  
+      // Reset form visually
+      form.reset();
+      document.getElementById("totalPrice").textContent = "0";
+  
+      const today = new Date().toISOString().split("T")[0];
+      startDateInput.setAttribute("min", today);
+      returnDateInput.setAttribute("min", today);
+  
+      // ✅ Redirect to homepage
+      window.location.href = "index.html";
+    }
+  });
+  
+>>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
   
 
   if (vin) {
@@ -261,11 +342,38 @@ cancelBtn.addEventListener("click", () => {
             <p><strong>Fuel:</strong> ${selectedCar.fuelType}</p>
             <p><strong>Price Per Day:</strong> $${selectedCar.pricePerDay}</p>
           </div>
+<<<<<<< HEAD
         `;        
+=======
+        `;
+>>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
         }
         restoreForm();
         updateTotalPrice();
         validateForm();
       });
   }
+<<<<<<< HEAD
+=======
+  if (!vin) {
+    document.getElementById("reservationForm").style.display = "none";
+    document.getElementById("carDetails").style.display = "none";
+  
+    const msgBox = document.getElementById("noCarMsg");
+    msgBox.style.display = "block";
+    msgBox.innerHTML = `
+      <h3>No car selected.</h3>
+      <button id="goHomeBtn" style="padding:10px 20px; background:#c0392b; color:#fff; border:none; border-radius:5px; font-size:16px; cursor:pointer;">
+        Country roads, take me home
+      </button>
+    `;
+  
+    document.getElementById("goHomeBtn").addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  
+    return; // stop further execution
+  }
+  
+>>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
 });
