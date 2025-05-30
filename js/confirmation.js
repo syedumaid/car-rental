@@ -1,77 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-<<<<<<< HEAD
-    const details = JSON.parse(localStorage.getItem("confirmedOrder"));
-    const orders = JSON.parse(localStorage.getItem("mock_orders")) || [];
-    const container = document.getElementById("confirmationDetails");
-    const confirmBtn = document.getElementById("confirmOrderBtn");
-    const heading = document.getElementById("confirmationHeading");
-  
-    if (!details) {
-      container.innerHTML = "<p style='color: red;'>No reservation found. Please make a reservation first.</p>";
-      confirmBtn.style.display = "none";
-      return;
-    }
-  
-    // Set status if missing
-    if (!details.rental.status) {
-      details.rental.status = "pending";
-      localStorage.setItem("confirmedOrder", JSON.stringify(details));
-    }
-  
-    function updateDisplay(status) {
-      const badgeColor = status === "confirmed" ? "green" : "orange";
-      const statusText = status.charAt(0).toUpperCase() + status.slice(1);
-  
-      heading.textContent = status === "confirmed" ? "Reservation Confirmed" : "Order Pending";
-      heading.className = status === "confirmed" ? "text-success" : "text-warning";
-  
-      container.innerHTML = `
-        <p><strong>Name:</strong> ${details.customer.name}</p>
-        <p><strong>Email:</strong> ${details.customer.email}</p>
-        <p><strong>Phone:</strong> ${details.customer.phoneNumber}</p>
-        <p><strong>License No:</strong> ${details.customer.driversLicenseNumber}</p>
-        <p><strong>Car VIN:</strong> ${details.car.vin}</p>
-        <p><strong>Rental Start Date:</strong> ${details.rental.startDate}</p>
-        <p><strong>Rental Return Date:</strong> ${details.rental.returnDate}</p>
-        <p><strong>Rental Period:</strong> ${details.rental.rentalPeriod} days</p>
-        <p><strong>Total Price:</strong> $${details.rental.totalPrice}</p>
-        <p><strong>Status:</strong> 
-          <span style="color: white; background-color: ${badgeColor}; padding: 0.2rem 0.6rem; border-radius: 4px;">
-            ${statusText}
-          </span>
-        </p>
-      `;
-    }
-  
-    updateDisplay(details.rental.status);
-  
-    confirmBtn.addEventListener("click", () => {
-      if (details.rental.status === "confirmed") return;
-  
-      const match = orders.find(o =>
-        o.customer.email === details.customer.email &&
-        o.car.vin === details.car.vin &&
-        o.rental.status === "pending"
-      );
-  
-      if (match) {
-        match.rental.status = "confirmed";
-        details.rental.status = "confirmed";
-        localStorage.setItem("mock_orders", JSON.stringify(orders));
-        localStorage.setItem("confirmedOrder", JSON.stringify(details));
-        updateDisplay("confirmed");
-  
-        confirmBtn.disabled = true;
-        confirmBtn.textContent = "Order Confirmed";
-        confirmBtn.style.backgroundColor = "#ccc";
-        confirmBtn.style.cursor = "default";
-      } else {
-        alert("Unable to confirm order. It may already be confirmed.");
-      }
-    });
-  });
-  
-=======
   const details = JSON.parse(localStorage.getItem("confirmedOrder"));
   const container = document.getElementById("confirmationDetails");
   const confirmBtn = document.getElementById("confirmOrderBtn");
@@ -134,4 +61,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)

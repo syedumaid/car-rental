@@ -11,9 +11,6 @@
       "available": true,
       "pricePerDay": 50,
       "description": "A reliable and fuel-efficient sedan perfect for daily commuting.",
-<<<<<<< HEAD
-      "vin": "1HGBH41JXMN109186"
-=======
       "vin": "1HGBH41JXMN109186",
       "unavailableDates": [
         {
@@ -25,7 +22,6 @@
           "end": "2025-05-31"
         }
       ]
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
     },
     {
       "carType": "SUV",
@@ -51,12 +47,6 @@
       "available": true,
       "pricePerDay": 120,
       "description": "A powerful and stylish coupe offering an exhilarating driving experience.",
-<<<<<<< HEAD
-      "vin": "1FA6P8TH6J5134567"
-    },
-    
-
-=======
       "vin": "1FA6P8TH6J5134567",
       "unavailableDates": [
         {
@@ -69,7 +59,6 @@
         }
       ]
     },
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
     {
       "carType": "Sedan",
       "brand": "Hyundai",
@@ -117,11 +106,7 @@
       "yearOfManufacture": 2016,
       "mileage": "18,000 km",
       "fuelType": "Gasoline",
-<<<<<<< HEAD
-      "available": false,
-=======
       "available": true,
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
       "pricePerDay": 110,
       "description": "Sporty performance with head-turning looks.",
       "vin": "1CHEVY6JXMN198765"
@@ -270,8 +255,4 @@
       "vin": "KM8J3CA46JU123456"
     }
   ]
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
