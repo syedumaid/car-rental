@@ -13,7 +13,11 @@
     <div class="container header-container">
       <a href="index.html"><img src="img/logo.png" alt="Logo" class="logo"></a>
       <h1>Find Your Ride</h1>
+      <a id="resumeReservationIcon" href="reservation.html" title="Resume Reservation">
+       <img src="img/shopping-cart.png" alt="Logo" class="cart">
+      </a>
     </div>
+    
   </header>
 
   <!-- Search + Filters -->
@@ -50,5 +54,20 @@
   </section>
 
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedFields = [
+        "form_name", "form_phone", "form_email", "form_license",
+        "form_startDate", "form_returnDate", "selectedVIN"
+      ];
+  
+      const hasSavedReservation = savedFields.some(field => localStorage.getItem(field));
+  
+      if (hasSavedReservation) {
+        document.getElementById("resumeReservationIcon").style.display = "inline-block";
+      }
+    });
+  </script>
+  
 </body>
 </html>

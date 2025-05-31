@@ -30,6 +30,32 @@ header {
   height: 6.5em;
   width: auto;
 }
+.cart {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.cart:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 600px) {
+  .cart {
+    width: 32px;
+    height: 32px;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+
 
 /* Search Section */
 .search-filter-section {
@@ -421,64 +447,6 @@ input:valid {
 #confirmOrderBtn.outline:hover {
   background-color: #f0f0f0;
 }
-<<<<<<< HEAD
-.warning-text {
-  color: red;
-  font-size: 0.85em;
-  display: block;
-  margin-top: 4px;
-}
-/* Uniform Input Styling */
-.reservation-form input[type="text"],
-.reservation-form input[type="email"],
-.reservation-form input[type="tel"],
-.reservation-form input[type="date"] {
-  width: 100%;
-  max-width: 100%;
-  height: 44px;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-
-.reservation-form input:invalid {
-  border-color: red;
-}
-
-.reservation-form input:valid {
-  border-color: green;
-}
-
-.warning-text {
-  display: block;
-  font-size: 0.9rem;
-  color: red;
-  margin-top: 0.3rem;
-  margin-bottom: 0.5rem;
-}
-.btn-home {
-  background-color: #ff8c00;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-home:hover {
-  background-color: #e67300;
-}
-=======
->>>>>>> 95210c9 (fixed node.js-FINALLYYYY)
-
-
 
 
 
